@@ -1,0 +1,29 @@
+AutoML -> for loop of 2 types:
+
+1. Algorithm [SVM, Log, DT, RF…]
+2. HP loop [LR, L1/L2, epoch, …]
+
+- You get a starting point 
+- You get model explanation 
+
+GMEK- google manage, rotates
+CMEK- google creates, you manage and rotate
+CSEK- you generate and manage and rotate
+
+File System- GCS
+Csv- 3 copies- sharding 
+
+Parquet- encrypted!
+
+Early Stopping:
+
+1. Model Performance- metric 
+2. Time - Node Hours (budget), Max time I have for deployment [SDK]
+
+
+1- Model Performance
+	a) Median - all models below median performance are dropped
+	b) Truncation - every model below a Metric X will be dropped
+	c) Slack Factor- score or ratio 
+
+
