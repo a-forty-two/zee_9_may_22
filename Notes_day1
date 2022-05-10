@@ -1,0 +1,109 @@
+OLTP- small data- TXs
+- Editing is powerful, searching is poor
+
+OLAP- big data - analytics
+- Searching is powerful, editing is a BIG NO NO!
+
+Big data is data too big for 1 machine 
+
+1 machine = 2 numbers 
+
+1,2,3 = big data!
+
+2 to 4
+300 ms - 2 to 4
+M1 = 1,4         ,         M3 = 1,4 ; 100ms
+          100ms; 100ms
+M2 = 100ms;
+
+300ms
+M2 = 3            ,        M4 = 3; 0ms
+100ms
+each ops - 100 ms
+
+Not very scalable!
+
+Sharding- 
+2->4 
+300 ms            200ms                200ms
+M1 = 1,4           M2 = 4,3            M3 = 3,1
+									100ms
+Searching is faster due to data duplication!!!
+
+
+3 numbers = 3 machines!
+EDITING is a TIME consuming and machine intensive process in sharding and should be AVOIDED as far as possible!
+
+DAG 
+
+                                             OLTP         OLAP
+a=1             a=?               1                   True
+b=2				b=?                2						True
+c=a+b			c=?                3							True
+print(c)		??                  “3”                execute()->”3”
+
+OLTP-> eager evaluation-> stack & heap managed by user
+OLAP-> lazy evaluation -> first build a DAG-> DAG manages the stack and heap
+
+DAG-> lines-> flow, nodes-> Transformations/Actions
+
+
+Transformation-> a = b+1 -> graph is ONLY updated, NOT executed
+
+Actions -> print(c) -> graph is executed till this node!
+
+
+PyTorch — TF (core C++)
+
+OLTP    ———— OLAP
+
+
+DAG is built because the USER may not write the BEST program!
+Let user write the program and design DAG— then the tech (Spark/TF/flow…) -> optimize the DAG and then execute it!
+
+- Console, shell, powershell, py, API
+
+- GNN- graphical 
+- Recommendation Engine (GNN +)
+- Docker (Flask , 5001) + K8
+- VPC/Firewall, service creds
+- IAM (user + service) 
+
+Batch:
+
+Source —— GCS —DataFlow— Vertex AI or BQ
+														|	
+														GCS -> Vertex AI or BQ
+
+Stream 
+
+Sensor/
+Game —— Pub/Sub — DataFlow— Vertex AI or BQ
+															|	
+														GCS -> Vertex AI or BQ
+
+Pub/sub -> Push / Pull
+
+Pull -> 7 days/ 14 days ( Apache Kafka) 
+
+
+Big data = data too large for 1 machine 
+
+1 machine = 2 numbers 
+
+1,2,3
+
+M1 -> 1,2  —— replicated ——— M3-> 1,2
+M2 -> 3																M4 -> 3
+
+Sum = M1(3), M2(3) = M1+m2= 6
+3 numbers- 4 machines!
+
+SHARDING 
+SUM = M1(3) + M2(5) + M3(4)
+1+2+3 = 12
+MapReduce -> Map the problem to individual machines, LET them solve, then REDUCE the result!
+
+M1 _> 1,2            M2-> 2,3          M3-> 3,1 
+
+3 numbers - 3 machines!
