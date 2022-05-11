@@ -18,3 +18,24 @@ mkdir api
 
 cd api
 
+sudo apt-get install wget
+
+wget https://raw.githubusercontent.com/a-forty-two/zee_9_may_22/main/api.py
+
+
+sudo apt-get install docker.io
+
+sudo docker login
+
+echo "flask" > requirements.txt
+
+wget https://raw.githubusercontent.com/a-forty-two/zee_9_may_22/main/Dockerfile
+sudo docker build -t blahcontainer .
+sudo docker run -it -p 5000:5000 blahcontainer
+
+sudo docker image ls
+
+
+sudo docker tag blahcontainer yourusername/yourrepository
+
+sudo docker push yourusername/yourrepository
