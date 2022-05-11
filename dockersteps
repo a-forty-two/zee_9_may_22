@@ -39,3 +39,11 @@ sudo docker image ls
 sudo docker tag blahcontainer yourusername/yourrepository
 
 sudo docker push yourusername/yourrepository
+
+
+
+# to use
+
+sudo docker pull yourusername/yourrepository
+
+sudo docker run -it -p startport:endport yourusername/yourrepository
