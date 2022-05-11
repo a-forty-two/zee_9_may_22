@@ -6,3 +6,15 @@ python3 -m venv utopia
 
 cd utopia
 cd bin
+
+source activate 
+
+cd ..
+cd ..
+
+mkdir api
+
+# create a firewall rule 
+
+cd api
+
